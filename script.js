@@ -166,24 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   
-    // Newsletter form submission (for demonstration)
-    const newsletterForm = document.querySelector(".newsletter-form");
-  
-    if (newsletterForm) {
-      newsletterForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-  
-        const emailInput = newsletterForm.querySelector('input[type="email"]');
-  
-        if (emailInput && emailInput.value.trim()) {
-          console.log("Newsletter subscription:", emailInput.value.trim());
-  
-          // Reset form
-          newsletterForm.reset();
-  
-          alert("Obrigado por se inscrever em nossa newsletter!");
-        }
-      });
-    }
+    
+                 
   });
   
