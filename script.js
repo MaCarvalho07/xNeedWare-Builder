@@ -1,4 +1,3 @@
-// Wait for DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", () => {
     // Mobile menu toggle
     const menuToggle = document.getElementById("menu-toggle")
@@ -48,12 +47,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (contactForm) {
       // Inicializar EmailJS
       ;(() => {
-        // Substitua "YOUR_PUBLIC_KEY" pela sua chave pública do EmailJS
+        console.log("Inicializando EmailJS...");  // Log para inicialização do EmailJS
         emailjs.init("iFLAwnK19hUGEfEtr")
       })()
   
       contactForm.addEventListener("submit", (e) => {
         e.preventDefault()
+  
+        console.log("Formulário submetido");  // Log para checar se o formulário foi submetido
   
         // Reset previous error messages
         const errorMessages = document.querySelectorAll(".error-message")
@@ -111,12 +112,14 @@ document.addEventListener("DOMContentLoaded", () => {
             message: messageInput.value.trim(),
           }
   
+          console.log("Parâmetros do template:", templateParams);  // Log dos parâmetros do template
+  
           // Send email using EmailJS
-          // Substitua "YOUR_SERVICE_ID" e "YOUR_TEMPLATE_ID" pelos seus IDs do EmailJS
           emailjs
             .send("service_o9her8m", "template_yqdpos4", templateParams)
             .then((response) => {
-              console.log("Email enviado com sucesso!", response.status, response.text)
+              console.log("Email enviado com sucesso! Status:", response.status);
+              console.log("Texto da resposta:", response.text);
   
               // Show success message
               formSuccess.style.display = "block"
@@ -135,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
               }, 5000)
             })
             .catch((error) => {
-              console.error("Erro ao enviar email:", error)
+              console.error("Erro ao enviar email:", error);  // Log do erro
   
               // Show error message
               formSuccess.style.display = "block"
